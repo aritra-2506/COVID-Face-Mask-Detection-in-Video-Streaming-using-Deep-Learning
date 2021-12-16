@@ -1,13 +1,10 @@
 import cv2
+import math
 
-text = 'Aritra Mazumdar'
+text = 'Aritra'
 
 # font
 font = cv2.FONT_HERSHEY_SIMPLEX
-
-# org
-org = (100, 300)
-
 # fontScale
 fontScale = 1
 
@@ -37,7 +34,11 @@ while True:
     faces = face_cascade.detectMultiScale(gray, 1.1, 4)
     # Draw the rectangle around each face
     for (x, y, w, h) in faces:
-        print(x)
+        a = int(round((x + w) / 2))
+        b = int(round((y+h)/2))
+        #print(a)
+        #print(b)
+        org = (a, b)
 
         cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 2)
         cv2.putText(img, text, org, font, fontScale,
