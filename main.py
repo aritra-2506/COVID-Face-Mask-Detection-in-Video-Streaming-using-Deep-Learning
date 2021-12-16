@@ -1,7 +1,7 @@
 import cv2
 import math
 
-text = 'Aritra'
+text = 'Masked'
 
 # font
 font = cv2.FONT_HERSHEY_SIMPLEX
@@ -34,15 +34,17 @@ while True:
     faces = face_cascade.detectMultiScale(gray, 1.1, 4)
     # Draw the rectangle around each face
     for (x, y, w, h) in faces:
-        a = int(round((x + w) / 2))
-        b = int(round((y+h)/2))
+        a = x+int(math.ceil(w/4))
+        b = y+h+30
         #print(a)
         #print(b)
         org = (a, b)
 
+        #img = cv2.flip(img, 1)
+
         cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 2)
         cv2.putText(img, text, org, font, fontScale,
-                    color, thickness, cv2.LINE_AA, True)
+                    color, thickness, cv2.LINE_AA)
 
         # Display
     cv2.imshow('img', img)
@@ -52,4 +54,3 @@ while True:
         break
 # Release the VideoCapture object
 cap.release()
-
