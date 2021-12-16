@@ -1,6 +1,23 @@
 import cv2
 
-text = 'Video Streaming'
+text = 'Aritra Mazumdar'
+
+# font
+font = cv2.FONT_HERSHEY_SIMPLEX
+
+# org
+org = (100, 300)
+
+# fontScale
+fontScale = 1
+
+# Red color in BGR
+color = (0, 0, 255)
+
+# Line thickness of 2 px
+thickness = 1
+
+
 
 
 # Load the cascade
@@ -23,6 +40,8 @@ while True:
         print(x)
 
         cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 2)
+        cv2.putText(img, text, org, font, fontScale,
+                    color, thickness, cv2.LINE_AA, True)
 
         # Display
     cv2.imshow('img', img)
