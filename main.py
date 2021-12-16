@@ -1,12 +1,12 @@
 import cv2
 import math
 
-text = 'Masked'
+text = 'Unmasked'
 
 # font
 font = cv2.FONT_HERSHEY_SIMPLEX
 # fontScale
-fontScale = 1
+
 
 # Red color in BGR
 color = (0, 0, 255)
@@ -39,6 +39,8 @@ while True:
         #print(a)
         #print(b)
         org = (a, b)
+
+        fontScale = w/330
 
         #img = cv2.flip(img, 1)
 
